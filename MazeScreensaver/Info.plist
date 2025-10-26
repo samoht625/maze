@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.tido.MazeScreensaver</string>
+	<key>CFBundleName</key>
+	<string>MazeScreensaver</string>
+	<key>CFBundleDisplayName</key>
+	<string>MazeScreensaver</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.12</string>
+	<key>CFBundleVersion</key>
+	<string>13</string>
+	<key>NSPrincipalClass</key>
+	<string>MazeScreensaverView</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>13.0</string>
+</dict>
+</plist>
+
