@@ -1,4 +1,4 @@
-// !\$*UTF8*\$!
+// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		A7584463-4030-4319-B91C-CF7CDE58BC1A /* MazeScreensaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F587C999-9A2C-448A-A4F6-5C5B9237A3BC /* MazeScreensaverView.swift */; };
+		90386FBE-5A05-4989-B368-7F05111EFFF0 /* MazeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73379B-898C-446D-A719-3E202E04F822 /* MazeModel.swift */; };
+		787483FA-E8F4-467D-AFF5-AA3E035E2C93 /* MazePlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9577BA1-FDFA-4E98-AF89-BCC79D5BF49F /* MazePlayback.swift */; };
+		D7883BE8-4FA3-450A-822F-B1AAACE2A09B /* MazeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3614AF-8D8D-4E9B-811C-A238C8F561DF /* MazeSettings.swift */; };
+		1DDD6440-6B74-478A-8BC1-980970D5789B /* MazeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B687EA-ED28-4ED5-8984-1028459A5AB6 /* MazeRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3E1A3096-00BC-4A70-A7A9-94B831F99333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F587C999-9A2C-448A-A4F6-5C5B9237A3BC /* MazeScreensaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeScreensaverView.swift; sourceTree = "<group>"; };
+		BB73379B-898C-446D-A719-3E202E04F822 /* MazeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeModel.swift; sourceTree = "<group>"; };
+		B9577BA1-FDFA-4E98-AF89-BCC79D5BF49F /* MazePlayback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazePlayback.swift; sourceTree = "<group>"; };
+		DC3614AF-8D8D-4E9B-811C-A238C8F561DF /* MazeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeSettings.swift; sourceTree = "<group>"; };
+		08B687EA-ED28-4ED5-8984-1028459A5AB6 /* MazeRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeRenderer.swift; sourceTree = "<group>"; };
 		6ECBCAD4-51A6-40E3-BB7B-E5549E2992FD /* MazeScreensaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MazeScreensaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -31,6 +39,10 @@
 			isa = PBXGroup;
 			children = (
 				F587C999-9A2C-448A-A4F6-5C5B9237A3BC /* MazeScreensaverView.swift */,
+				BB73379B-898C-446D-A719-3E202E04F822 /* MazeModel.swift */,
+				B9577BA1-FDFA-4E98-AF89-BCC79D5BF49F /* MazePlayback.swift */,
+				DC3614AF-8D8D-4E9B-811C-A238C8F561DF /* MazeSettings.swift */,
+				08B687EA-ED28-4ED5-8984-1028459A5AB6 /* MazeRenderer.swift */,
 				3E1A3096-00BC-4A70-A7A9-94B831F99333 /* Info.plist */,
 			);
 			path = MazeScreensaver;
@@ -96,6 +108,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7584463-4030-4319-B91C-CF7CDE58BC1A /* MazeScreensaverView.swift in Sources */,
+				90386FBE-5A05-4989-B368-7F05111EFFF0 /* MazeModel.swift in Sources */,
+				787483FA-E8F4-467D-AFF5-AA3E035E2C93 /* MazePlayback.swift in Sources */,
+				D7883BE8-4FA3-450A-822F-B1AAACE2A09B /* MazeSettings.swift in Sources */,
+				1DDD6440-6B74-478A-8BC1-980970D5789B /* MazeRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +162,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
-					"",
+					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -223,16 +239,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MazeScreensaver/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
-					"",
+					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tido.MazeScreensaver;
 				PRODUCT_MODULE_NAME = MazeScreensaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -248,16 +264,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MazeScreensaver/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
-					"",
+					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tido.MazeScreensaver;
 				PRODUCT_MODULE_NAME = MazeScreensaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";

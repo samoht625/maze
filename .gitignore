@@ -23,6 +23,8 @@ DerivedData/
 ._*
 
 # Build products
+.build/
+.swiftpm/
 *.saver
 
 # IDE

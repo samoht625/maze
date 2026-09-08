@@ -1,17 +1,25 @@
 #!/usr/bin/env bash
 # Script to create Xcode project for MazeScreensaver
 
-set -e
+set -euo pipefail
 
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$PROJECT_DIR"
+mkdir -p MazeScreensaver.xcodeproj
 
 # Generate UUIDs for the project
-PROJECT_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
 TARGET_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
 SOURCE_FILE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
+MODEL_FILE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
+PLAYBACK_FILE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
+SETTINGS_FILE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
+RENDERER_FILE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
 PLIST_FILE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
 PBX_BUILD_FILE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
+MODEL_BUILD_FILE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
+PLAYBACK_BUILD_FILE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
+SETTINGS_BUILD_FILE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
+RENDERER_BUILD_FILE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
 PBX_SOURCES_BUILD_PHASE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
 PBX_FRAMEWORKS_BUILD_PHASE_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
 PBX_NATIVE_TARGET_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
@@ -26,7 +34,7 @@ PROJECT_CONFIG_LIST_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
 TARGET_CONFIG_LIST_UUID=$(uuidgen | tr '[:lower:]' '[:upper:]')
 
 cat > MazeScreensaver.xcodeproj/project.pbxproj <<EOF
-// !\\\$*UTF8*\\\$!
+// !\$*UTF8*\$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -36,11 +44,19 @@ cat > MazeScreensaver.xcodeproj/project.pbxproj <<EOF
 
 /* Begin PBXBuildFile section */
 		${PBX_BUILD_FILE_UUID} /* MazeScreensaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ${SOURCE_FILE_UUID} /* MazeScreensaverView.swift */; };
+		${MODEL_BUILD_FILE_UUID} /* MazeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ${MODEL_FILE_UUID} /* MazeModel.swift */; };
+		${PLAYBACK_BUILD_FILE_UUID} /* MazePlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = ${PLAYBACK_FILE_UUID} /* MazePlayback.swift */; };
+		${SETTINGS_BUILD_FILE_UUID} /* MazeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ${SETTINGS_FILE_UUID} /* MazeSettings.swift */; };
+		${RENDERER_BUILD_FILE_UUID} /* MazeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ${RENDERER_FILE_UUID} /* MazeRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		${PLIST_FILE_UUID} /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		${SOURCE_FILE_UUID} /* MazeScreensaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeScreensaverView.swift; sourceTree = "<group>"; };
+		${MODEL_FILE_UUID} /* MazeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeModel.swift; sourceTree = "<group>"; };
+		${PLAYBACK_FILE_UUID} /* MazePlayback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazePlayback.swift; sourceTree = "<group>"; };
+		${SETTINGS_FILE_UUID} /* MazeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeSettings.swift; sourceTree = "<group>"; };
+		${RENDERER_FILE_UUID} /* MazeRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeRenderer.swift; sourceTree = "<group>"; };
 		${TARGET_UUID} /* MazeScreensaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MazeScreensaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -59,6 +75,10 @@ cat > MazeScreensaver.xcodeproj/project.pbxproj <<EOF
 			isa = PBXGroup;
 			children = (
 				${SOURCE_FILE_UUID} /* MazeScreensaverView.swift */,
+				${MODEL_FILE_UUID} /* MazeModel.swift */,
+				${PLAYBACK_FILE_UUID} /* MazePlayback.swift */,
+				${SETTINGS_FILE_UUID} /* MazeSettings.swift */,
+				${RENDERER_FILE_UUID} /* MazeRenderer.swift */,
 				${PLIST_FILE_UUID} /* Info.plist */,
 			);
 			path = MazeScreensaver;
@@ -124,6 +144,10 @@ cat > MazeScreensaver.xcodeproj/project.pbxproj <<EOF
 			buildActionMask = 2147483647;
 			files = (
 				${PBX_BUILD_FILE_UUID} /* MazeScreensaverView.swift in Sources */,
+				${MODEL_BUILD_FILE_UUID} /* MazeModel.swift in Sources */,
+				${PLAYBACK_BUILD_FILE_UUID} /* MazePlayback.swift in Sources */,
+				${SETTINGS_BUILD_FILE_UUID} /* MazeSettings.swift in Sources */,
+				${RENDERER_BUILD_FILE_UUID} /* MazeRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +198,7 @@ cat > MazeScreensaver.xcodeproj/project.pbxproj <<EOF
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
-					"$(inherited)",
+					"\$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -251,18 +275,19 @@ cat > MazeScreensaver.xcodeproj/project.pbxproj <<EOF
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MazeScreensaver/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
+					"\$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tido.MazeScreensaver;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = MazeScreensaver;
+				PRODUCT_NAME = "\$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -275,18 +300,19 @@ cat > MazeScreensaver.xcodeproj/project.pbxproj <<EOF
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MazeScreensaver/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
+					"\$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tido.MazeScreensaver;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = MazeScreensaver;
+				PRODUCT_NAME = "\$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
